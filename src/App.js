@@ -1,28 +1,38 @@
-import React from 'react'
-import ProfileCard from './ProfileCard'
+import React, { useState } from 'react'
 import 'bulma/css/bulma.css';
-import Alexa from './images-react-02-chapter/alexa.png';
-import Cortana from './images-react-02-chapter/cortana.png'
-import Siri from './images-react-02-chapter/siri.png'
+import AnimalShow from './AnimalShow';
+
 
 const App = () => {
-  return (
+    
+    const [animal , setAnimal] = useState([]);
+
+    const randomAnimalGen = () => {
+    
+        const animals = ['cow' , 'bird' , 'cat', 'dog','gator','horse']
+        // console.log(animals[ Math.floor(Math.random()*animals.length)]) 
+        return animals[Math.floor(Math.random()*animals.length)]
+        
+    }
+
+    const renderedAnimals = animal.map( (ani , index) => {
+        return <AnimalShow type={ani} key={index} />
+    })  
+
+    const handleClick = () => {
+        // setAnimal(randomAnimalGen)
+        setAnimal( [...animal , randomAnimalGen()])
+    }
+
+
+    return (
     <div >
-        <div className="container">
-            <div className="section">
-                <div className="columns">
-                    <div className="column is-4">         
-        <ProfileCard assistant="siri" handle="@siri99" image={Siri} />
-                    </div>
-                    <div className="column is-4">
-        <ProfileCard assistant="alexa" handle="@alexa3" image={Alexa} />
-                    </div>
-                    <div className="column is-4">
-        <ProfileCard assistant="cortana" handle="@cortana69" image={Cortana} />
-                        
-                    </div>
-                </div>
-            </div>
+        <div>
+            {/* <AnimalShow /> */}
+        </div>
+        <div>
+            <button onClick={handleClick}>Add animal</button>
+            <h1> {renderedAnimals} </h1>
         </div>
     </div>
   )
