@@ -1,40 +1,24 @@
 import React, { useState } from 'react'
-import 'bulma/css/bulma.css';
-import AnimalShow from './AnimalShow';
-
+import BookCreate from './components/BookCreate';
 
 const App = () => {
-    
-    const [animal , setAnimal] = useState([]);
+  
+  const [books , setBooks] = useState([]);
 
-    const randomAnimalGen = () => {
-    
-        const animals = ['cow' , 'bird' , 'cat', 'dog','gator','horse']
-        // console.log(animals[ Math.floor(Math.random()*animals.length)]) 
-        return animals[Math.floor(Math.random()*animals.length)]
-        
-    }
-
-    const renderedAnimals = animal.map( (ani , index) => {
-        return <AnimalShow type={ani} key={index} />
-    })  
-
-    const handleClick = () => {
-        // setAnimal(randomAnimalGen)
-        setAnimal( [...animal , randomAnimalGen()])
-    }
-
-
-    return (
-    <div >
-        <div>
-            {/* <AnimalShow /> */}
-        </div>
-        <div>
-            <button onClick={handleClick}>Add animal</button>
-            <h1> {renderedAnimals} </h1>
-        </div>
-    </div>
+  const createBook = (title) => {
+    console.log("book created :" , title)
+    console.log(books);
+    const updatedBooks = [
+      ...books , setBooks(title)
+    ]
+  }
+  
+  return (
+   <div>
+    <h1>salut</h1>
+    <BookCreate onCreate={createBook} />
+    <h1> {} </h1>
+   </div>
   )
 }
 
