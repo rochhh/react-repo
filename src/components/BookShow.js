@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import BookEdit from './BookEdit';
+import BookValue from '../context/books'
 
 const BookShow = ({book, onEdit, onDelete}) => {
   
+ 
+
   const [ edit , setEdit ] = useState(false);
 
   let content = <h3> {book.title} </h3>
