@@ -1,27 +1,19 @@
 import React from 'react'
-import Button from './Button'
-
+import Button from './components/Button'
+import ButtonPage from './pages/ButtonPage'
+import Accordion from './components/Accordion'
 const App = () => {
   
-  const someFuck = () => {
-    console.log("fuck this shit");
-  }
+  const items = [
+    {key:'123',label : "french" , content: "je parle francais"},
+    {key:'345',label : "english" , content: "i speak english"},
+    {key:'678',label: "hindi" , content:"mai hindi bolta hu "}
+  ]
 
-  const someOtherFuck = () => {
-    console.log("imma head out");
-  }
-  
   return (
     <div>
-      <div>
-        <Button primary  onClick={someFuck} >Click me</Button>
-      </div>
-      <div>
-        <Button secondary onMouseEnter={someOtherFuck} rounded>Clique moi</Button>
-      </div>
-      <div>
-        <Button danger>Klick mich</Button>
-      </div>
+      <ButtonPage />
+      <Accordion items={items} />
     </div>
   )
 }
