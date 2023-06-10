@@ -1,19 +1,23 @@
 import React from 'react'
 import Button from './Button'
 
-const App = ({func}) => {
+const App = () => {
   
   const someFuck = () => {
     console.log("fuck this shit");
+  }
+
+  const someOtherFuck = () => {
+    console.log("imma head out");
   }
   
   return (
     <div>
       <div>
-        <Button primary func someFuckingProp={someFuck} >Click me</Button>
+        <Button primary  onClick={someFuck} >Click me</Button>
       </div>
       <div>
-        <Button secondary rounded>Clique moi</Button>
+        <Button secondary onMouseEnter={someOtherFuck} rounded>Clique moi</Button>
       </div>
       <div>
         <Button danger>Klick mich</Button>

@@ -10,7 +10,7 @@ const Button = ({
     danger,
     outline,
     rounded,
-    someFuckingProp
+    ...rest
 }) => {
 
   const classes = className('px-12 py-6 border' , {
@@ -25,7 +25,7 @@ const Button = ({
 
   return (
     <div>
-        <button className={classes} onClick={someFuckingProp} > {children} </button>
+        <button className={classes} {...rest} > {children} </button>
 
     </div>
   )
