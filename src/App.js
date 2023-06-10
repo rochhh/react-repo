@@ -1,23 +1,24 @@
-import React, { useEffect } from 'react'
-import BookCreate from './components/BookCreate';
-import BookList from './components/BookList';
-import { useContext } from 'react';
-import BooksContext from './context/books';
+import React from 'react'
+import Button from './Button'
 
-const App = () => {
+const App = ({func}) => {
   
-  const {fetchBook} = useContext(BooksContext);
-
-  useEffect ( () => {
-    fetchBook()
-  } , [] )
+  const someFuck = () => {
+    console.log("fuck this shit");
+  }
   
   return (
-   <div>
-    <h1>salut</h1>
-    <BookCreate  />
-    <BookList  />
-   </div>
+    <div>
+      <div>
+        <Button primary func someFuckingProp={someFuck} >Click me</Button>
+      </div>
+      <div>
+        <Button secondary rounded>Clique moi</Button>
+      </div>
+      <div>
+        <Button danger>Klick mich</Button>
+      </div>
+    </div>
   )
 }
 
