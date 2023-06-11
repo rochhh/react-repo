@@ -1,19 +1,27 @@
-import React from 'react'
-import Button from './components/Button'
-import ButtonPage from './pages/ButtonPage'
-import Accordion from './components/Accordion'
+import React, { useState } from 'react'
+import Dropdown from './components/Dropdown'
+// import ButtonPage from './pages/ButtonPage'
+// import AccordionPage from './pages/AccordionPage'
+
 const App = () => {
   
-  const items = [
-    {key:'123',label : "french" , content: "je parle francais"},
-    {key:'345',label : "english" , content: "i speak english"},
-    {key:'678',label: "hindi" , content:"mai hindi bolta hu "}
+  const [select , setSelect] = useState(null);
+
+  const selectedOption = (selectedOption) => {
+    setSelect(selectedOption);
+  }
+
+  const options = [
+    {label: 'label 1 ' , value: 'value 1' },
+    {label: 'label 2 ' , value: 'value 2' },
+    {label: 'label 3 ' , value: 'value 3' }
   ]
 
   return (
     <div>
       {/* <ButtonPage /> */}
-      <Accordion items={items} />
+      {/* <AccordionPage /> */}
+      <Dropdown select={select} selectedOption={selectedOption} options={options} />
     </div>
   )
 }
