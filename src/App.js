@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <ButtonPage />
+      {/* <ButtonPage /> */}
       <Accordion items={items} />
     </div>
   )
